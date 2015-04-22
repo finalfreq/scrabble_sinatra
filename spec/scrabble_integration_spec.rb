@@ -2,11 +2,11 @@ require('capybara/rspec')
 require('./app')
 Capybara.app = Sinatra::Application
 
-describe('the title case path', {:type => :feature}) do
-  it('processes the user entry and returns it title cased') do
+describe('the score of a scrabble word', {:type => :feature}) do
+  it('calculates score of a scrabble word') do
     visit('/')
-    fill_in('title', :with => 'green eggs and ham')
+    fill_in('score', :with => 'quixotic')
     click_button('Send')
-    expect(page).to have_content('Green Eggs and Ham')
+    expect(page).to have_content(26)
   end
 end
